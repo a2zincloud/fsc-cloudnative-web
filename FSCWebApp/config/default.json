@@ -1,0 +1,36 @@
+{
+  "Application": {
+    "cluster_name": "fsccloudnativecluster",
+    "region": "us-south"
+  },
+  "Auth-Server": {
+    "client_id":"fsccloudeweb",
+    "client_secret":"fsccloudeweb3cret"
+  },
+  "APIs": {
+    "protocol": "http",
+    "customer": {
+      "service_name": "localhost:8080",
+      "base_path": "/epricer",
+      "require": [
+        "client_id",
+        "oauth"
+      ]
+    },
+    "oauth20": {
+      "service_name": "auth-service:8080",
+      "base_path": "/oauth",
+      "paths": {
+        "authz": "/authorize",
+        "token": "/token"
+      },
+      "grant_types": [
+        "password"
+      ],
+      "scopes": [
+        "fsccloudnative"
+      ],
+      "redirect_url": "http://localhost"
+    }
+  }
+}
