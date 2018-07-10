@@ -45,7 +45,7 @@ podTemplate(label: 'fscweb', cloud: cloud, serviceAccount: serviceAccount, names
             stage('Deploy new Docker Image') {
                 sh """
                 #!/bin/bash
-                DEPLOYMENT=`kubectl --namespace=${env.NAMESPACE} get deployments -l app=fscweb,micro=web-bff -o name`
+                DEPLOYMENT=`kubectl --namespace=${env.NAMESPACE} get deployments -l app=fsacweb,micro=web-bff -o name`
 
                 kubectl --namespace=${env.NAMESPACE} get \${DEPLOYMENT}
 
