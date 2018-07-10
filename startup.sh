@@ -14,5 +14,5 @@ else
 	jq --arg region $region '.Application.region = $region' config/default.json > config/default2.json && \
 	mv config/default2.json config/default.json
 fi
-
+npm run prod:build
 npm start
