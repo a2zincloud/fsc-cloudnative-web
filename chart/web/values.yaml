@@ -3,7 +3,7 @@
 # Declare variables to be passed into your templates.
 replicaCount: 1
 image:
-  repository: ibmcase/bluecompute-web
+  repository: registry.ng.bluemix.net/fsc_cloudnative/fscweb
   tag: latest
   pullPolicy: Always
 service:
@@ -12,7 +12,7 @@ service:
   externalPort: 80
   internalPort: 8000
   nodeport:
-    port: 31337
+    port: 31339
 ingress:
   enabled: false
   hostname:
@@ -29,7 +29,7 @@ resources:
   requests:
     cpu: 100m
     memory: 128Mi
-region: 
+region:
 clusterName:
 services:
   auth:

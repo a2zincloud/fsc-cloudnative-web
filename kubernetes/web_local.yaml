@@ -24,7 +24,7 @@ kind: Service
 metadata:
   name: fscweb
   labels:
-    app: bluecompute
+    app: fscweb
     tier: frontend
     micro: web-bff
 spec:

@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: {{ .Release.Name }}-{{ .Chart.Name }}
   labels:
-    app: bluecompute
+    app: fsacweb
     micro: web-bff
     tier: frontend
     release: {{.Release.Name | quote }}
@@ -13,7 +13,7 @@ spec:
   template:
     metadata:
       labels:
-        app: bluecompute
+        app: fscweb
         micro: web-bff
         tier: frontend
     spec:

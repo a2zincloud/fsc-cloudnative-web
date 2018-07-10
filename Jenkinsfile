@@ -26,7 +26,7 @@ podTemplate(label: 'fscweb', cloud: cloud, serviceAccount: serviceAccount, names
             stage('Build Docker Image') {
                 sh """
                 #!/bin/bash
-                docker build -t ${env.REGISTRY}/${env.NAMESPACE}/fscweb:${env.BUILD_NUMBER} .
+                docker build -t ${env.REGISTRY}/fscweb:${env.BUILD_NUMBER} .
                 """
             }
             stage('Push Docker Image to Registry') {
@@ -36,7 +36,7 @@ podTemplate(label: 'fscweb', cloud: cloud, serviceAccount: serviceAccount, names
                     sh """
                     #!/bin/bash
                     docker login -u ${USERNAME} -p ${PASSWORD} ${env.REGISTRY}
-                    docker push ${env.REGISTRY}/${env.NAMESPACE}/fscweb:${env.BUILD_NUMBER}
+                    docker push ${env.REGISTRY}/fscweb:${env.BUILD_NUMBER}
                     """
                 }
             }
@@ -56,7 +56,7 @@ podTemplate(label: 'fscweb', cloud: cloud, serviceAccount: serviceAccount, names
                 fi
 
                 # Update Deployment
-                kubectl --namespace=${env.NAMESPACE} set image \${DEPLOYMENT} web=${env.REGISTRY}/${env.NAMESPACE}/fscweb:${env.BUILD_NUMBER}
+                kubectl --namespace=${env.NAMESPACE} set image \${DEPLOYMENT} web=${env.REGISTRY}/fscweb:${env.BUILD_NUMBER}
                 kubectl --namespace=${env.NAMESPACE} rollout status \${DEPLOYMENT}
                 """
             }
