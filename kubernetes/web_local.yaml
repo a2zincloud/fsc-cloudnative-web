@@ -1,0 +1,39 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: fscweb
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: fscweb
+        tier: frontend
+        micro: web-bff
+    spec:
+      containers:
+      - name: fscweb
+        image: fscweb:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 8000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: fscweb
+  labels:
+    app: bluecompute
+    tier: frontend
+    micro: web-bff
+spec:
+  ports:
+  - protocol: TCP
+    port: 8000
+  selector:
+    app: fscweb
+    tier: frontend
+    micro: web-bff
+  type: NodePort
+...

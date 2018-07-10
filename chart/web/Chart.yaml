@@ -1,0 +1,4 @@
+apiVersion: v1
+description: FSC Web BFF app
+name: web
+version: 0.1.0
