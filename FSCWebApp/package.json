@@ -2,7 +2,7 @@
   "name": "fscweb-app",
   "version": "0.0.0",
   "scripts": {
-    "start": "node ./bin/server",
+    "start": "npm run prod:build && node ./bin/server",
     "ng": "ng",
     "dev:serve": "ng serve",
     "dev:build": "ng build",
