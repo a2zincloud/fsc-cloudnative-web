@@ -36,7 +36,7 @@ podTemplate(label: 'fscweb', cloud: cloud, serviceAccount: serviceAccount, names
                     sh """
                     #!/bin/bash
                     docker login -u ${USERNAME} -p ${PASSWORD} ${env.REGISTRY}
-                    docker push ${env.REGISTRY}/${env.NAMESPACE}/bluecompute-ce-web:${env.BUILD_NUMBER}
+                    docker push ${env.REGISTRY}/${env.NAMESPACE}/fscweb:${env.BUILD_NUMBER}
                     """
                 }
             }
